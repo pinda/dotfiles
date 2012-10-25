@@ -1,0 +1,18 @@
+[submodule "zsh/oh-my-zsh"]
+	path = zsh/oh-my-zsh
+	url = git://github.com/robbyrussell/oh-my-zsh.git
+[submodule "vim/vim/ack"]
+	path = vim/vim/ack
+	url = git://github.com/mileszs/ack.vim.git
+[submodule "vim/vim/bundle/fugitive"]
+	path = vim/vim/bundle/fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "vim/vim/bundle/gist-vim"]
+	path = vim/vim/bundle/gist-vim
+	url = git://github.com/mattn/gist-vim.git
+[submodule "vim/vim/bundle/powerline"]
+	path = vim/vim/bundle/powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/vim/bundle/vim-rooter"]
+	path = vim/vim/bundle/vim-rooter
+	url = git://github.com/airblade/vim-rooter.git

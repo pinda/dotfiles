@@ -1,0 +1,75 @@
+# Common
+alias cd..="cd .."
+alias c="clear"
+alias q="exit"
+alias e="exit"
+alias ..="cd .."
+alias rh="runhaskell"
+alias rmpyc="find . -name '*.pyc' | xargs rm"
+alias gun="gunicorn_django --workers=2"
+alias clj="rlwrap clj"
+alias ec="emacsclient -t"
+
+# Don't correct sudo for me
+alias sudo='nocorrect sudo'
+
+# Temporary
+alias clear='echo "CTRL-L"'
+
+# Only for Mac
+if [ `uname` = "Darwin" ]; then
+    # Redis
+    alias redis-server="redis-server /usr/local/etc/redis.conf"
+
+    # Flush DNS
+    alias flushdns="dscacheutil -flushcache"
+
+    # Macvim
+    alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+
+    # Homebrew
+    alias brup="brew update; brew upgrade"
+
+    # Postgresql
+    alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+    alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+
+    # Emacs
+    alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
+    alias emacsclient="/usr/local/Cellar/emacs/HEAD/bin/emacsclient"
+    alias ec="/usr/local/Cellar/emacs/HEAD/bin/emacsclient -t -a /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
+    alias ef="/usr/local/Cellar/emacs/HEAD/bin/emacsclient -n -c -a /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
+    
+    # MongoDB
+    alias mongod='mongod run --config /usr/local/Cellar/mongodb/2.0.2-x86_64/mongod.conf'
+
+    # PostgreSQL
+    alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+    alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+fi
+
+# Git
+if [ -e "/usr/local/bin/hub" ]; then
+  alias git="hub"
+fi
+alias gs="git status --ignore-submodules=dirty"
+alias gp="git push origin master"
+alias gf="git pull origin master"
+
+# Python servers
+alias "smtpd"="python -m smtpd -n -c DebuggingServer localhost:1025"
+alias "fileserver"="python -m SimpleHTTPServer"
+
+# Django
+alias rs='./manage.py runserver 127.0.0.1:8000'
+alias rsp='./manage.py runserver 127.0.0.1:8000 --settings=settings_production'
+alias tst='./manage.py test'
+
+# Pypi
+alias pyup='python setup.py sdist register upload'
+
+# Git
+alias gd='git diff | subl -w'
+
+# Sikuli
+alias sk='/Applications/Sikuli-IDE.app/sikuli-ide.sh'

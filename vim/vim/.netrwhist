@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/joeri/Sites/toernooi'
+let g:netrw_dirhist_2='/Users/joeri/Sites/toernooi-api'
+let g:netrw_dirhist_3='/Users/joeri/Sites/leidsfilmfestival'
+let g:netrw_dirhist_4='/Users/joeri/Sites/cultuurfonds'
+let g:netrw_dirhist_5='/Users/joeri/Sites/leidsfilmfestival'
+let g:netrw_dirhist_6='/Users/joeri/Sites/toernooi-api'
+let g:netrw_dirhist_7='/Users/joeri/Sites/leidsfilmfestival'
+let g:netrw_dirhist_8='/Users/joeri/Sites/bioscopen-leiden'
+let g:netrw_dirhist_9='/Users/joeri/Sites/leidsfilmfestival'

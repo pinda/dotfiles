@@ -1,0 +1,198 @@
+" Vim configuration file by Petar Radosevic
+set cmdheight=2
+set nocompatible            " use vim defaults
+set encoding=utf-8
+set fileencoding=utf-8
+set bg=dark
+syntax on                   " enable syntax highlighting
+
+" Pathogen
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
+" GUI
+if has("gui_running")
+  if has('mac')
+    set guifont=Source\ Code\ Pro:h15
+  else
+    set guifont=Envy\ Code\ R\ for\ Powerline:h15
+  endif
+  set guioptions-=e
+  set guioptions-=T
+  set guioptions-=m
+  set guioptions-=r
+  set guioptions-=L
+  set guioptions-=b
+  set guioptions+=a
+  set guioptions+=c
+  colorscheme Tomorrow-Night
+  set novisualbell        " please, no visuals
+  set anti                " anti-aliasing
+  set mousehide           " hide the mouse when typing 
+else
+  " 256 colors setting
+  set t_Co=256
+  colorscheme ir_black 
+  set mouse=a
+  set ttymouse=xterm
+  set termencoding=utf-8
+endif
+
+" Powerline settings
+if has("gui_running")
+  let g:Powerline_symbols = 'fancy' "pretty symbols for powerline
+endif
+"let g:Powerline_theme='Tomorrow-Night'
+"let g:Powerline_colorscheme='solarized'
+
+" Editor configuration
+if has('unix')
+  set shell=/bin/zsh
+else
+  set shell=/usr/local/bin/zsh
+endif
+set showmatch               " show matching brackets (), {}' []
+set showcmd                 " show command
+set modelines=0             " don't use modelines
+set ignorecase              " case-insensitive search
+set smartcase               " upper-case sensitive search
+set laststatus=2            " occasions to show status line, 2=always.
+set hidden                  " move buffer to background without saving
+set wrap                    " set long-line wrapping
+set textwidth=80            " disable automatic text-width
+set history=1000            " more history
+set shortmess=atI           " shorten confirmation messages
+set bs=2                    " fix backspace in FreeBSD
+set scrolloff=3             " keep 3 lines below/above cursor
+set showmode                " shows the mode i'm currently in
+set showcmd                 " shows partial command in the last line
+set ttyfast                 " improved remote connections
+set ruler                   " show the line and column number of the cursor
+set backspace=indent,eol,start
+set relativenumber          " show line numbering relative to current position
+set number                  " show line numbering
+set undofile                " create undofiles
+set formatoptions=qrn1
+set colorcolumn=80
+
+" Ignore these files in netrw
+let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
+
+" Use normal regular expressions
+nnoremap / /\v
+vnoremap / /\v
+
+" ` is more useful than ' but less accessible.
+nnoremap ' `
+nnoremap ` '
+
+" Bash-like filename completion
+set wildmenu
+set wildmode=list:longest
+set wildignore=*.o,*.fasl,*.tmp,.git,*.pyc,*.jpg,*.gif,*.png,*.mo
+
+" Look for the file in the current directory, then south until you reach home.
+set tags=tags;~/
+
+" Auto-backup files and .swp files don't go to pwd
+" Backup settings
+set undodir=~/.vim/tmp/undo//     " undo files
+set backupdir=~/.vim/tmp/backup// " backups
+set directory=~/.vim/tmp/swap//   " swap files
+set backup                        " enable backups
+set noswapfile                    " no swapping
+
+" Faster scrolling
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+" Whitespace
+set nowrap
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set listchars=tab:▸\ ,trail:·,eol:¬
+
+let mapleader=','
+
+" Toggle whitespace invisibles
+nmap <leader>l :set list!<CR>
+
+" Markdown detection
+autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
+
+" Fugitive
+map <leader>g :Gstatus<cr>
+
+" Textile settings
+au BufRead *.tex set tw=79
+
+" Mutt settings
+au BufRead /tmp/mutt-* set tw=72 formatoptions=tcql
+
+" RestructuredText
+augroup rst
+  autocmd BufRead *.rst set ai tw=79 spell filetype=rst formatoptions=tcroqn2 comments=n:>
+augroup END
+
+" JSON
+au! BufRead,BufNewFile *.json setfiletype json 
+
+" NERDTree
+autocmd vimenter * if !argc() | NERDTree | endif
+let NERDTreeIgnore=['\.pyc$', ]
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+" Setup statusline with git
+set laststatus=2
+set statusline=
+set statusline+=%-3.3n\ " buffer number
+set statusline+=%f\ " file name
+set statusline+=%h%m%r%w                        " flags
+set statusline+=\[%{strlen(&ft)?&ft:'none'},    " filetype
+set statusline+=%{&encoding},                   " encoding
+set statusline+=%{&fileformat}]                 " file format
+set statusline+=\ %{fugitive#statusline()}      " git branch
+set statusline+=%=                              " right align
+set statusline+=%-14.(%l,%c%V%)\ %<%P           " offset
+
+" Shortcuts
+map <C-i> gqip
+map <leader>v :sp $MYVIMRC<cr>
+noremap <f1> :bprev!<cr>
+noremap <f2> :bnext!<cr>
+noremap <f3> :set invfu<cr>
+nnoremap j gj
+nnoremap k gk
+nnoremap <leader>a :Ack 
+
+" Switching windows
+map <C-k> <C-w><Up>
+map <C-j> <C-w><Down>
+map <C-l> <C-w><Right>
+map <C-h> <C-w><Left>
+
+" Switch to alternate file
+map <C-Tab> :bnext<cr>
+map <C-S-Tab> :bprevious<cr>
+
+" Haskell settings
+au BufEnter *.hs compiler ghc
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s %s"
+let g:ghc="/usr/local/bin/ghc"
+let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
+
+" Reload vim config on save
+au! BufWritePost $MYVIMRC source %
+
+" Remove .py whitespace
+autocmd BufWritePre *.py :%s/\s\+$//e
+
+" Clojure
+let vimclojure#HighlightBuiltins=1  " Highlight Clojure's builtins
