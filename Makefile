@@ -22,6 +22,8 @@ zsh::
 mutt::
 	@ln -fs $(DOTFILES)/mutt/offlineimaprc  ${HOME}/.offlineimaprc
 	@ln -fs $(DOTFILES)/mutt/muttrc       	${HOME}/.muttrc
+	@ln -fs $(DOTFILES)/mutt/msmtprc 		${HOME}/.msmtprc
+	@ln -fs $(DOTFILES)/mutt/urlview  		${HOME}/.urlview
 	@echo Mutt is symlinked.
 
 

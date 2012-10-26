@@ -43,8 +43,8 @@ endif
 if has("gui_running")
   let g:Powerline_symbols = 'fancy' "pretty symbols for powerline
 endif
-"let g:Powerline_theme='Tomorrow-Night'
-"let g:Powerline_colorscheme='solarized'
+let g:Powerline_theme='Tomorrow-Night'
+let g:Powerline_colorscheme='solarized'
 
 " Editor configuration
 if has('unix')

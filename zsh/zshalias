@@ -73,3 +73,6 @@ alias gd='git diff | subl -w'
 
 # Sikuli
 alias sk='/Applications/Sikuli-IDE.app/sikuli-ide.sh'
+
+# Mutt
+alias mutt='cd ~/Downloads && mutt'
