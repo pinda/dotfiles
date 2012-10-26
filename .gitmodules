@@ -17,5 +17,8 @@
 	path = vim/vim/bundle/vim-rooter
 	url = git://github.com/airblade/vim-rooter.git
 [submodule "mutt/mutt-colors-solarized"]
-	path = mutt/mutt-colors-solarized
+	path = mutt/mutt/mutt-colors-solarized
+	url = git://github.com/altercation/mutt-colors-solarized.git
+[submodule "mutt/mutt/mutt-colors-solarized"]
+	path = mutt/mutt/mutt-colors-solarized
 	url = git://github.com/altercation/mutt-colors-solarized.git

@@ -6,7 +6,7 @@ set message_cachedir = ~/.mutt/cache/bodies     # where to store bodies
 set certificate_file = ~/.mutt/certificates     # where to store certs
 set mailcap_path     = ~/.mutt/mailcap          # entries for filetypes
 set tmpdir           = ~/.mutt/temp             # where to keep temp files
-set signature        = ~/.mutt/sig              # my signature file
+set spoolfile        = "+breadandpepper.com/INBOX"
 
 # Basic Options --------------------------------------
 set wait_key = no        # shut up, mutt
@@ -95,6 +95,9 @@ bind attach <return> view-mailcap
 
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
+# Solarized
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+
 # Compose View Options -------------------------------
 set realname = "Joeri Djojosoeparto" # who am i?
 set envelope_from                    # which from?
@@ -111,7 +114,7 @@ set reply_to                         # reply to Reply to: field
 set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
-set editor = "mvim -f"               # Use MacVim to compose email.
+set editor = "vim"                   # Use MacVim to compose email.
 
 # Postpone message
 bind compose p postpone-message
@@ -128,26 +131,10 @@ bind pager N search-opposite
 macro index a "<limit>all\n" "show all messages (undo limit)"
 macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py /Volumes/Loempia/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
 
-# Account Settings -----------------------------------
+# Gmail account
+source ~/.mutt/accounts/gmail.conf
+folder-hook =gmail.com source ~/.mutt/accounts/gmail.conf
 
-set from     = "joeri@breadandpepper.com"
-set sendmail = "/usr/local/bin/msmtp -a breadandpepper"
-set sendmail_wait = 0
-unset record
-
-# Default inbox.
-set spoolfile = "+breadandpepper.com/INBOX"
-
-# Alternate email addresses.
-#alternates sjl@pculture.org still\.?life@gmail.com steve@ladyluckblues.com steve@pculture.org
-
-# Mailboxes to show in the sidebar.
-mailboxes +breadandpepper.com/INBOX \
-          +breadandpepper.com/archive \
-          +breadandpepper.com/sent \
-          +breadandpepper.com/drafts \
-          +temporary/search \
-
-# Other special folders.
-set mbox      = "+breadandpepper.com/archive"
-set postponed = "+breadandpepper.com/drafts"
+# Breadandpepper account
+source ~/.mutt/accounts/breadandpepper.conf
+folder-hook =breadandpepper.com source ~/.mutt/accounts/breadandpepper.conf
