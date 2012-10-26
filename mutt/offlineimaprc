@@ -1,6 +1,6 @@
 [general]
 ui = TTY.TTYUI
-accounts = jsoejitno,BreadAndPepper 
+accounts = jsoejitno,breadandpepper 
 pythonfile=~/.mutt/offlineimap.py
 fsync = False
 
@@ -13,7 +13,8 @@ postsynchook = notmuch new
 [Repository jsoejitno-local]
 type = Maildir
 localfolders = /Volumes/Loempia/.mail/gmail.com
-nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+nametrans = lambda folder: {'Gmail':   'INBOX',
+                            'drafts':  '[Gmail]/Drafts',
                             'sent':    '[Gmail]/Sent Mail',
                             'flagged': '[Gmail]/Starred',
                             'trash':   '[Gmail]/Trash',
@@ -26,7 +27,8 @@ type = Gmail
 remoteuser = jsoejitno 
 remotepasseval = get_keychain_pass(account="jsoejitno@gmail.com", server="imap.gmail.com")
 realdelete = no
-nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+nametrans = lambda folder: {'INBOX':             'Gmail',
+                            '[Imap]/Drafts':     'drafts',
                             '[Gmail]/Sent Mail': 'sent',
                             '[Gmail]/Starred':   'flagged',
                             '[Gmail]/Trash':     'trash',
@@ -37,29 +39,31 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/Spam',
                                              ]
 
-[Account BreadAndPepper]
-localrepository = BreadAndPepper-Local
-remoterepository = BreadAndPepper-Remote
+[Account breadandpepper]
+localrepository = breadandpepper-local
+remoterepository = breadandpepper-remote
 status_backend = sqlite
 postsynchook = notmuch new
 
-[Repository BreadAndPepper-Local]
+[Repository breadandpepper-local]
 type = Maildir
 localfolders = /Volumes/Loempia/.mail/breadandpepper.com
-nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
-                            'sent':    '[Gmail]/Sent Mail',
-                            'flagged': '[Gmail]/Starred',
-                            'trash':   '[Gmail]/Trash',
-                            'archive': '[Gmail]/All Mail',
+nametrans = lambda folder: {'Breadandpepper': 'INBOX',
+                            'drafts':         '[Gmail]/Drafts',
+                            'sent':           '[Gmail]/Sent Mail',
+                            'flagged':        '[Gmail]/Starred',
+                            'trash':          '[Gmail]/Trash',
+                            'archive':        '[Gmail]/All Mail',
                             }.get(folder, folder)
 
-[Repository BreadAndPepper-Remote]
+[Repository breadandpepper-remote]
 maxconnections = 1
 type = Gmail
 remoteuser = joeri@breadandpepper.com
 remotepasseval = get_keychain_pass(account="joeri@breadandpepper.com", server="imap.gmail.com")
 realdelete = no
-nametrans = lambda folder: {'[Gmail]/Drafts':     'drafts',
+nametrans = lambda folder: {'INBOX':             'Breadandpepper',
+                            '[Imap]/Drafts':     'drafts',
                             '[Gmail]/Sent Mail': 'sent',
                             '[Gmail]/Starred':   'flagged',
                             '[Gmail]/Trash':     'trash',

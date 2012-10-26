@@ -24,6 +24,7 @@ mutt::
 	@ln -fs $(DOTFILES)/mutt/muttrc       	${HOME}/.muttrc
 	@ln -fs $(DOTFILES)/mutt/msmtprc 		${HOME}/.msmtprc
 	@ln -fs $(DOTFILES)/mutt/urlview  		${HOME}/.urlview
+	@ln -fs $(DOTFILES)/mutt/sync_mailboxes ${HOME}/.sync_mailboxes
 	@echo Mutt is symlinked.
 
 
