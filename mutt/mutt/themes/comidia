@@ -16,7 +16,7 @@
 color normal     default        default # normal text
 color indicator  brightcyan     black   # actual message
 color tree       brightmagenta  default # thread arrows
-color status     cyan           black   # status line
+color status     cyan           default # status line
 color error      brightcyan     default # errors
 color message    cyan           default # info messages
 color signature  red            default # signature
@@ -33,11 +33,12 @@ color quoted2    red            default
 color quoted3    magenta        default
 color quoted4    blue           default
 color quoted5    blue           default
+color sidebar_new color154      color233
 #
 #     object     foreground backg.   RegExp
 #
 color header     red        default  "^(from|subject):"
-color body       yellow       default  "((ftp|http|https)://|(file|news):|www\\.)[-a-z0-9_.:]*[a-z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:!])?/?"
+color body       yellow     default  "((ftp|http|https)://|(file|news):|www\\.)[-a-z0-9_.:]*[a-z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:!])?/?"
 color body       cyan       default  "[-a-z_0-9.+]+@[-a-z_0-9.]+"
 color body       red        default  "(^| )\\*[-a-z0-9*]+\\*[,.?]?[ \n]"
 color body       green      default  "(^| )_[-a-z0-9_]+_[,.?]?[ \n]"
