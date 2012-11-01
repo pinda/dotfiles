@@ -33,7 +33,7 @@ if has("gui_running")
 else
   " 256 colors setting
   set t_Co=256
-  colorscheme ir_black 
+  colorscheme Tomorrow-Night 
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
@@ -43,8 +43,8 @@ endif
 if has("gui_running")
   let g:Powerline_symbols = 'fancy' "pretty symbols for powerline
 endif
-let g:Powerline_theme='Tomorrow-Night'
-let g:Powerline_colorscheme='solarized'
+let g:Powerline_colorscheme='solarized256'
+let g:Powerline_theme ='solarized256'
 
 " Editor configuration
 if has('unix')
@@ -74,7 +74,9 @@ set relativenumber          " show line numbering relative to current position
 set number                  " show line numbering
 set undofile                " create undofiles
 set formatoptions=qrn1
-set colorcolumn=80
+if has("gui_running")
+    set colorcolumn=80
+endif
 
 " Ignore these files in netrw
 let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
@@ -140,7 +142,9 @@ augroup END
 au! BufRead,BufNewFile *.json setfiletype json 
 
 " NERDTree
-autocmd vimenter * if !argc() | NERDTree | endif
+if has("gui_running")
+    autocmd vimenter * if !argc() | NERDTree | endif
+endif
 let NERDTreeIgnore=['\.pyc$', ]
 
 " CtrlP
@@ -180,13 +184,6 @@ map <C-h> <C-w><Left>
 " Switch to alternate file
 map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
-
-" Haskell settings
-au BufEnter *.hs compiler ghc
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s %s"
-let g:ghc="/usr/local/bin/ghc"
-let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
 
 " Reload vim config on save
 au! BufWritePost $MYVIMRC source %

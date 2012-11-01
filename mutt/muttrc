@@ -95,8 +95,8 @@ bind attach <return> view-mailcap
 
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
-# Solarized
-source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+# Theme 
+source ~/.mutt/themes/comidia
 
 # Compose View Options -------------------------------
 set realname = "Joeri Djojosoeparto" # who am i?
