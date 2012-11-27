@@ -27,4 +27,6 @@ mutt::
 	@ln -fs $(DOTFILES)/mutt/sync_mailboxes ${HOME}/.sync_mailboxes
 	@echo Mutt is symlinked.
 
-
+slate::
+	@ln -fs $(DOTFILES)/slate/slate 	${HOME}/.slate
+	@echo Slate is symlinked.

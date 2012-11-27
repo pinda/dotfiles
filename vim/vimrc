@@ -1,4 +1,4 @@
-" Vim configuration file by Petar Radosevic
+" Vim configuration file
 set cmdheight=2
 set nocompatible            " use vim defaults
 set encoding=utf-8
@@ -113,6 +113,7 @@ nnoremap <C-y> 3<C-y>
 set nowrap
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
 set expandtab
 set listchars=tab:▸\ ,trail:·,eol:¬
 
@@ -125,13 +126,25 @@ nmap <leader>l :set list!<CR>
 autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
 
 " Fugitive
-map <leader>g :Gstatus<cr>
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>ga :Gadd<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gco :Gcheckout<cr>
+nnoremap <leader>gci :Gcommit<cr>
+nnoremap <leader>gm :Gmove<cr>
+nnoremap <leader>gr :Gremove<cr>
+nnoremap <leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
 
 " Textile settings
 au BufRead *.tex set tw=79
 
 " Mutt settings
 au BufRead /tmp/mutt-* set tw=72 formatoptions=tcql
+
+" Rainbow parentheses
+map <leader>R :RainbowToggle<cr>
 
 " RestructuredText
 augroup rst
@@ -192,4 +205,13 @@ au! BufWritePost $MYVIMRC source %
 autocmd BufWritePre *.py :%s/\s\+$//e
 
 " Clojure
-let vimclojure#HighlightBuiltins=1  " Highlight Clojure's builtins
+let vimclojure#FuzzyIndent=1
+let vimclojure#HighlightBuiltins=1
+let vimclojure#HighlightContrib=1
+let vimclojure#DynamicHighlighting=1
+let vimclojure#ParenRainbow=1
+let vimclojure#WantNailgun = 1 
+let vimclojure#NailgunClient = "/usr/local/bin/ng"
+
+" Paredit mode
+let g:paredit_mode = 0
