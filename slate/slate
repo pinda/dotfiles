@@ -29,6 +29,12 @@ layout oneScreen 'Xcode' move ${fullscreen}
 layout oneScreen 'MacVim' move ${fullscreen}
 layout oneScreen 'Finder' move ${topLeftQuarter}
 
+# Laptop layout
+layout laptop 'Google Chrome' move ${fullscreen}
+layout laptop 'Xcode' move ${fullscreen}
+layout laptop 'MacVim' move ${fullscreen}
+layout laptop 'Finder' move ${topLeftQuarter}
+
 # Bindings
 bind g:cmd;ctrl move ${centered}
 bind o:cmd;ctrl move ${fullscreen}
