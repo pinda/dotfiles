@@ -22,6 +22,8 @@ Bundle 'VimClojure'
 Bundle 'Rainbow-Parenthesis'
 Bundle 'sjl/badwolf'
 
+filetype plugin indent on     " required!
+
 " GUI
 if has("gui_running")
   if has('mac')
@@ -47,7 +49,7 @@ else
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
-  colorscheme badwolf 
+  colorscheme Tomorrow-Night 
 endif
 
 " Powerline settings
