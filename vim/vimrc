@@ -15,19 +15,24 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'ack.vim'
+Bundle 'sjl/badwolf'
 Bundle 'scrooloose/nerdtree'
+Bundle 'xolox/vim-easytags'
+Bundle 'eraserhd/vim-ios'
+Bundle 'Rip-Rip/clang_complete'
+
+Bundle 'ack.vim'
 Bundle 'surround.vim'
 Bundle 'VimClojure'
 Bundle 'Rainbow-Parenthesis'
-Bundle 'sjl/badwolf'
+"Bundle 'cocoa.vim'
 
 filetype plugin indent on     " required!
 
 " GUI
 if has("gui_running")
   if has('mac')
-    set guifont=Source\ Code\ Pro:h15
+    set guifont=Ubuntu\ Mono:h17
   else
     set guifont=Envy\ Code\ R\ for\ Powerline:h15
   endif
@@ -42,7 +47,7 @@ if has("gui_running")
   set novisualbell        " please, no visuals
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing 
-  colorscheme badwolf 
+  colorscheme Tomorrow-Night 
 else
   " 256 colors setting
   set t_Co=256
@@ -56,8 +61,8 @@ endif
 if has("gui_running")
   let g:Powerline_symbols = 'fancy' "pretty symbols for powerline
 endif
-let g:Powerline_colorscheme='solarized256'
-let g:Powerline_theme ='solarized256'
+let g:Powerline_colorscheme='default'
+let g:Powerline_theme ='default'
 
 " Editor configuration
 if has('unix')
@@ -145,7 +150,7 @@ nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>ga :Gadd<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gco :Gcheckout<cr>
-nnoremap <leader>gci :Gcommit<cr>
+nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gm :Gmove<cr>
 nnoremap <leader>gr :Gremove<cr>
 nnoremap <leader>gl :Shell git gl -18<cr>:wincmd \|<cr>
