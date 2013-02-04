@@ -30,3 +30,7 @@ mutt::
 slate::
 	@ln -fs $(DOTFILES)/slate/slate 	${HOME}/.slate
 	@echo Slate is symlinked.
+
+tmux::
+	@ln -fs $(DOTFILES)/tmux/tmux.conf 	${HOME}/.tmux.conf
+	@echo tmux is symlinked.
