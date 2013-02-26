@@ -46,6 +46,9 @@ if [ `uname` = "Darwin" ]; then
     # PostgreSQL
     alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
     alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+
+    # Xcode
+    alias localize="find . -name '*.m' -print0 | xargs -0 genstrings"
 fi
 
 # Git
