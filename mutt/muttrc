@@ -114,7 +114,7 @@ set reply_to                         # reply to Reply to: field
 set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
-set editor = "vim"                   # Use MacVim to compose email.
+set editor = "/Applications/MacVim.app/Contents/MacOS/Vim"                   # Use MacVim to compose email.
 auto_view text/html                                      # view html automatically
 alternative_order text/plain text/enriched text/html     # save html for last
 
@@ -141,3 +141,7 @@ folder-hook =gmail.com source ~/.mutt/accounts/gmail.conf
 # Breadandpepper account
 source ~/.mutt/accounts/breadandpepper.conf
 folder-hook =breadandpepper.com source ~/.mutt/accounts/breadandpepper.conf
+
+# Gibbon account
+source ~/.mutt/accounts/gibbon.conf
+folder-hook =gibbon.co source ~/.mutt/accounts/gibbon.conf

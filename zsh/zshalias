@@ -30,10 +30,6 @@ if [ `uname` = "Darwin" ]; then
     # Homebrew
     alias brup="brew update; brew upgrade"
 
-    # Postgresql
-    alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-    alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-
     # Emacs
     alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
     alias emacsclient="/usr/local/Cellar/emacs/HEAD/bin/emacsclient"
@@ -73,9 +69,6 @@ alias pyup='python setup.py sdist register upload'
 
 # Git
 alias gd='git diff | subl -w'
-
-# Sikuli
-alias sk='/Applications/Sikuli-IDE.app/sikuli-ide.sh'
 
 # Mutt
 alias mutt='cd ~/Downloads && mutt'

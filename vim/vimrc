@@ -5,6 +5,7 @@ set encoding=utf-8          " utf-8 encoding
 set fileencoding=utf-8      " save files as utf-8
 set bg=dark                 " dark background
 syntax on                   " enable syntax highlighting
+set clipboard=unnamed
 
 " Vundle
 filetype off
@@ -20,12 +21,18 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'eraserhd/vim-ios'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'rking/ag.vim'
+Bundle 'jceb/vim-orgmode'
+Bundle 'mhinz/vim-startify'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tell-k/vim-browsereload-mac'
+Bundle 'Floobits/floobits-vim'
 
-Bundle 'ack.vim'
 Bundle 'surround.vim'
 Bundle 'VimClojure'
 Bundle 'Rainbow-Parenthesis'
-"Bundle 'cocoa.vim'
+Bundle 'jshint.vim'
 
 filetype plugin indent on     " required!
 
@@ -95,6 +102,9 @@ set formatoptions=qrn1
 if has("gui_running")
     set colorcolumn=80
 endif
+
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
 
 " Ignore these files in netrw
 let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
@@ -172,21 +182,21 @@ augroup END
 " JSON
 au! BufRead,BufNewFile *.json setfiletype json 
 
-" NERDTree
-noremap  <F2> :NERDTreeToggle<cr>
-inoremap <F2> <esc>:NERDTreeToggle<cr>
-let NERDTreeHighlightCursorline = 1
-let NERDTreeIgnore = ['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$', 'whoosh_index']
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDChristmasTree = 1
-let NERDTreeChDirMode = 2
-let NERDTreeMapJumpFirstChild = 'gK'
-
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+nnoremap <leader>cc :CtrlPClearAllCaches<cr>
+
+" Easy motion
+let g:EasyMotion_keys = 'asdfghjklqwertyuiopzxcvbnm'
+
+autocmd ColorScheme * highlight EasyMotionTarget ctermfg=32 guifg=#0087df
+autocmd ColorScheme * highlight EasyMotionShade ctermfg=237 guifg=#3a3a3a
+
+" AutoReload
+let g:returnApp = "MacVim"
+command! -bar Cr silent ChromeReload
 
 " Setup statusline with git
 set laststatus=2
@@ -209,7 +219,7 @@ noremap <f2> :bnext!<cr>
 noremap <f3> :set invfu<cr>
 nnoremap j gj
 nnoremap k gk
-nnoremap <leader>a :Ack 
+nnoremap <leader>cc :CtrlPClearAllCaches<cr>
 
 " Switching windows
 map <C-k> <C-w><Up>
@@ -241,3 +251,6 @@ let g:badwolf_darkgutter = 1
 
 " YouCompleteMe
 let g:ycm_min_num_of_chars_for_completion = 3 
+let g:ycm_confirm_extra_conf = 1
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_allow_changing_updatetime = 0

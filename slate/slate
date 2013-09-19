@@ -25,12 +25,14 @@ alias bottomRightQuarter ${sox}+${ssx}/2;${soy}+${ssy}/2 ${ssx}/2;${ssy}/2
 
 # 1 monitor layout
 layout oneScreen 'Google Chrome' move ${fullscreen}
+layout oneScreen 'Firefox' move ${fullscreen}
 layout oneScreen 'Xcode' move ${fullscreen}
 layout oneScreen 'MacVim' move ${fullscreen}
 layout oneScreen 'Finder' move ${topLeftQuarter}
 
 # Laptop layout
 layout laptop 'Google Chrome' move ${fullscreen}
+layout laptop 'Firefox' move ${fullscreen}
 layout laptop 'Xcode' move ${fullscreen}
 layout laptop 'MacVim' move ${fullscreen}
 layout laptop 'Finder' move ${topLeftQuarter}
@@ -53,10 +55,12 @@ bind 1:ctrl layout oneScreen
 #bind 3:ctrl layout threeScreen
 
 # Ultra fast switching
-bind b:alt;ctrl focus 'Google Chrome'
-bind i:alt;ctrl focus 'iTerm'
-bind e:alt;ctrl focus 'MacVim'
-bind x:alt;ctrl focus 'Xcode'
+bind b:alt focus 'Google Chrome'
+bind i:alt focus 'iTerm'
+bind e:alt focus 'MacVim'
+bind x:alt focus 'Xcode'
+bind c:alt focus 'HipChat'
+bind f:alt focus 'Finder'
 
 bind right:cmd;ctrl resize +10% +0
 bind left:cmd;ctrl  resize -10% +0

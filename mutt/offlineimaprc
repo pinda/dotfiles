@@ -1,6 +1,6 @@
 [general]
 ui = TTY.TTYUI
-accounts = jsoejitno,breadandpepper 
+accounts = jsoejitno,breadandpepper,gibbon
 pythonfile=~/.mutt/offlineimap.py
 fsync = False
 
@@ -63,6 +63,41 @@ remoteuser = joeri@breadandpepper.com
 remotepasseval = get_keychain_pass(account="joeri@breadandpepper.com", server="imap.gmail.com")
 realdelete = no
 nametrans = lambda folder: {'INBOX':             'Breadandpepper',
+                            '[Imap]/Drafts':     'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             ]
+
+[Account gibbon]
+localrepository = gibbon-local
+remoterepository = gibbon-remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository gibbon-local]
+type = Maildir
+localfolders = /Volumes/Loempia/.mail/gibbon.co
+nametrans = lambda folder: {'Gibbon': 'INBOX',
+                            'drafts':         '[Gmail]/Drafts',
+                            'sent':           '[Gmail]/Sent Mail',
+                            'flagged':        '[Gmail]/Starred',
+                            'trash':          '[Gmail]/Trash',
+                            'archive':        '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository gibbon-remote]
+maxconnections = 1
+type = Gmail
+remoteuser = joeri@gibbon.co
+remotepasseval = get_keychain_pass(account="joeri@gibbon.co", server="imap.gmail.com")
+realdelete = no
+nametrans = lambda folder: {'INBOX':             'Gibbon',
                             '[Imap]/Drafts':     'drafts',
                             '[Gmail]/Sent Mail': 'sent',
                             '[Gmail]/Starred':   'flagged',

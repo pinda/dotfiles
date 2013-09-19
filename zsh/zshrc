@@ -8,6 +8,9 @@ export ZSH_THEME="sorin"
 # Set to this to use case-sensitive completion
 export CASE_SENSITIVE="true"
 
+# Vagrant
+export VAGRANT_HOME=/Volumes/Loempia/.vagrant.d
+
 # Comment this out to disable weekly auto-update checks
 # export DISABLE_AUTO_UPDATE="true"
 
