@@ -20,7 +20,7 @@ export VAGRANT_HOME=/Volumes/Loempia/.vagrant.d
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-plugins=(git)
+plugins=(git vagrant django tmux tmuxinator)
 if [ `uname` = "Darwin" ]; then
    plugins+=(brew osx)
 fi

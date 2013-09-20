@@ -15,9 +15,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'sjl/badwolf'
-Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'eraserhd/vim-ios'
 Bundle 'Valloric/YouCompleteMe'
@@ -27,7 +26,9 @@ Bundle 'mhinz/vim-startify'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tell-k/vim-browsereload-mac'
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'Floobits/floobits-vim'
+Bundle 'klen/python-mode'
 
 Bundle 'surround.vim'
 Bundle 'VimClojure'
@@ -38,11 +39,7 @@ filetype plugin indent on     " required!
 
 " GUI
 if has("gui_running")
-  if has('mac')
-    set guifont=Ubuntu\ Mono:h17
-  else
-    set guifont=Envy\ Code\ R\ for\ Powerline:h15
-  endif
+  set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\:h15
   set guioptions-=e
   set guioptions-=T
   set guioptions-=m
@@ -64,12 +61,20 @@ else
   colorscheme Tomorrow-Night 
 endif
 
-" Powerline settings
-if has("gui_running")
-  let g:Powerline_symbols = 'fancy' "pretty symbols for powerline
-endif
-let g:Powerline_colorscheme='default'
-let g:Powerline_theme ='default'
+set nofoldenable    " disable folding
+
+" Airline
+set noshowmode
+
+let g:airline_theme='powerlineish'
+let g:airline_enable_branch=1
+let g:airline_powerline_fonts=1
+let g:airline_detect_whitespace = 1
+let g:airline#extensions#hunks#non_zero_only = 1
+
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#buffer_min_count = 1
 
 " Editor configuration
 if has('unix')
@@ -187,6 +192,19 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 nnoremap <leader>cc :CtrlPClearAllCaches<cr>
+
+" Python-mode
+
+let g:pymode_lint_ignore = "E501, E301"
+
+" Syntastic
+
+let g:syntastic_python_checkers=['pyflakes']
+
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_error_symbol  = '⚡'
+let g:syntastic_style_warning_symbol  = '⚡'
 
 " Easy motion
 let g:EasyMotion_keys = 'asdfghjklqwertyuiopzxcvbnm'
