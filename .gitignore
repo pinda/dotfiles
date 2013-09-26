@@ -1,2 +1,14 @@
 mutt/mutt/temp/*
 vim/vim/bundle/*
+
+# Emacs
+emacs/bookmarks
+emacs/var
+emacs/.org-id-locations
+emacs/swank
+emacs/elnode
+emacs/tutorial
+emacs/.mc-lists.el
+emacs/projectile-bookmarks.eld
+emacs/eshell/lastdir
+emacs/saved-places

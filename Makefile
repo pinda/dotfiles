@@ -1,5 +1,5 @@
 DOTFILES = $(PWD)
-all:: git vim zsh mutt
+all:: git vim emacs zsh mutt
 
 git::
 	@ln -fs $(DOTFILES)/git/gitignore       ${HOME}/.gitignore
@@ -11,6 +11,11 @@ vim::
 	@ln -fs $(DOTFILES)/vim/vimrc        ${HOME}/.vimrc
 	@ln -fns $(DOTFILES)/vim/vim         ${HOME}/.vim
 	@echo Vim is symlinked.
+
+emacs::
+	@ln -fs $(DOTFILES)/emacs/emacs.el		${HOME}/.emacs
+	@ln -fns $(DOTFILES)/emacs						${HOME}/.emacs.d
+	@echo Emacs is symlinked.
 
 zsh::
 	@ln -fs $(DOTFILES)/zsh/zshrc ${HOME}/.zshrc
