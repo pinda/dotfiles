@@ -33,6 +33,11 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 
+(custom-set-variables  
+ '(js2-basic-offset 4)  
+ '(js2-bounce-indent-p t)  
+)
+
 ;; whitespace
 (setq whitespace-style
       '(face tabs spaces trailing lines space-before-tab
@@ -61,6 +66,9 @@
 
 ;; websites
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(setq web-mode-engines-alist
+      '(("django"    . "\\.html\\'"))
+)
 
 ;; dired
 (require 'dired-details)
@@ -130,6 +138,9 @@
 (setq sp-base-key-bindings 'paredit)
 (setq sp-autoskip-closing-pair 'always)
 (sp-use-paredit-bindings)
+(sp-local-pair 'web-mode "{%" "%}")
+(sp-local-pair 'web-mode "{{" "}}")
+(sp-local-pair 'web-mode "{" nil :actions nil)
 (smartparens-global-mode t)
 
 ;; cleanup modeline

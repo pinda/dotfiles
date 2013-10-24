@@ -29,15 +29,15 @@
   '(add-to-list 'ac-modes 'slime-repl-mode))
 
 ;; nrepl autocompletion
-(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(add-hook 'nrepl-repl-mode-hook 'ac-nrepl-setup)
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'nrepl-mode))
+  '(add-to-list 'ac-modes 'nrepl-repl-mode))
 
 (defun set-auto-complete-as-completion-at-point-function ()
   (setq completion-at-point-functions '(auto-complete)))
 (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
-(add-hook 'nrepl-mode-hook 'set-auto-complete-as-completion-at-point-function)
+(add-hook 'nrepl-repl-mode-hook 'set-auto-complete-as-completion-at-point-function)
 (add-hook 'nrepl-interaction-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
 (defun nrepl-connection-infos (connection-buffer)
@@ -65,4 +65,4 @@
 ;; bindings
 (global-set-key (kbd "C-c C-x n") 'nrepl-switch-to-next-connection)
 
-(provide 'wunki-lisp)
+(provide 'pinda-lisp)

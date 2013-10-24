@@ -1,12 +1,15 @@
 ;; default tab-width is two spaces
 (setq-default tab-width 2
-              js-indent-level 2
+              js-indent-level 4
               c-basic-offset 2
               indent-tabs-mode nil)
 
 ;; email
 (setq user-full-name "Joeri Djojosoeparto")
 (setq user-mail-address "joeri@gibbon.co")
+
+;; set the editor hardcoded to Emacs. Fixes Magit.
+(setenv "EDITOR" "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient")
 
 ;; desktop, to automatically save and restore sessions
 (setq desktop-dirname             "~/.emacs.d/desktop/"
@@ -68,8 +71,24 @@
 ;; spelling
 (setq ispell-program-name "aspell")
 (setq ispell-list-command "list")
+(setq flyspell-issue-welcome-flag nil) ;; fix flyspell problem
 
 ;; set by emacs
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
  '(italic ((t (:slant italic)))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("5e6c2e2116c7a72ae0668390f92504fd0b77524cedd387582648b1aa1c582f59" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "c5207e7b8cc960e08818b95c4b9a0c870d91db3eaf5959dd4eba09098b7f232b" default)))
+ '(js2-basic-offset 4)
+ '(js2-bounce-indent-p t)
+ '(send-mail-function (quote smtpmail-send-it)))

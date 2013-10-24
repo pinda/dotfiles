@@ -1,8 +1,12 @@
 ;; mac only settings.
 ;; use the old way of toggling to fullscreen
 (setq ns-use-native-fullscreen nil)
-(global-set-key (kbd "<f3>") 'toggle-frame-fullscreen)
-(set-face-attribute 'default nil :height 160)
+(global-set-key (kbd "C-c f") 'toggle-frame-fullscreen)
+
+(setq flyspell-issue-welcome-flag nil) ;; fix flyspell problem
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 ;; browser
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)

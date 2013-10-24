@@ -1,9 +1,9 @@
 ;; active theme
-(load-theme 'zenburn)
+(load-theme 'sanityinc-tomorrow-night)
 
-;; font
-(set-frame-font "DejaVu Sans Mono-10.5")
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-10.5"))
+;; FONT
+(set-frame-font "DejaVu Sans Mono-15")
+(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-15"))
 
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."

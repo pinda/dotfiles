@@ -1,5 +1,5 @@
 [general]
-ui = TTY.TTYUI
+ui = TTYUI
 accounts = jsoejitno,breadandpepper,gibbon
 pythonfile=~/.mutt/offlineimap.py
 fsync = False
@@ -8,12 +8,11 @@ fsync = False
 localrepository = jsoejitno-local
 remoterepository = jsoejitno-remote
 status_backend = sqlite
-postsynchook = notmuch new
 
 [Repository jsoejitno-local]
 type = Maildir
-localfolders = /Volumes/Loempia/.mail/gmail.com
-nametrans = lambda folder: {'Gmail':   'INBOX',
+localfolders = /Volumes/Loempia/.mail/pinda
+nametrans = lambda folder: {'inbox':   'INBOX',
                             'drafts':  '[Gmail]/Drafts',
                             'sent':    '[Gmail]/Sent Mail',
                             'flagged': '[Gmail]/Starred',
@@ -26,8 +25,9 @@ maxconnections = 1
 type = Gmail
 remoteuser = jsoejitno 
 remotepasseval = get_keychain_pass(account="jsoejitno@gmail.com", server="imap.gmail.com")
+cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
 realdelete = no
-nametrans = lambda folder: {'INBOX':             'Gmail',
+nametrans = lambda folder: {'INBOX':             'inbox',
                             '[Imap]/Drafts':     'drafts',
                             '[Gmail]/Sent Mail': 'sent',
                             '[Gmail]/Starred':   'flagged',
@@ -43,12 +43,11 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
 localrepository = breadandpepper-local
 remoterepository = breadandpepper-remote
 status_backend = sqlite
-postsynchook = notmuch new
 
 [Repository breadandpepper-local]
 type = Maildir
-localfolders = /Volumes/Loempia/.mail/breadandpepper.com
-nametrans = lambda folder: {'Breadandpepper': 'INBOX',
+localfolders = /Volumes/Loempia/.mail/bread-and-pepper
+nametrans = lambda folder: {'inbox': 'INBOX',
                             'drafts':         '[Gmail]/Drafts',
                             'sent':           '[Gmail]/Sent Mail',
                             'flagged':        '[Gmail]/Starred',
@@ -61,8 +60,9 @@ maxconnections = 1
 type = Gmail
 remoteuser = joeri@breadandpepper.com
 remotepasseval = get_keychain_pass(account="joeri@breadandpepper.com", server="imap.gmail.com")
+cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
 realdelete = no
-nametrans = lambda folder: {'INBOX':             'Breadandpepper',
+nametrans = lambda folder: {'INBOX':             'inbox',
                             '[Imap]/Drafts':     'drafts',
                             '[Gmail]/Sent Mail': 'sent',
                             '[Gmail]/Starred':   'flagged',
@@ -78,12 +78,11 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
 localrepository = gibbon-local
 remoterepository = gibbon-remote
 status_backend = sqlite
-postsynchook = notmuch new
 
 [Repository gibbon-local]
 type = Maildir
-localfolders = /Volumes/Loempia/.mail/gibbon.co
-nametrans = lambda folder: {'Gibbon': 'INBOX',
+localfolders = /Volumes/Loempia/.mail/gibbon
+nametrans = lambda folder: {'inbox': 'INBOX',
                             'drafts':         '[Gmail]/Drafts',
                             'sent':           '[Gmail]/Sent Mail',
                             'flagged':        '[Gmail]/Starred',
@@ -96,8 +95,9 @@ maxconnections = 1
 type = Gmail
 remoteuser = joeri@gibbon.co
 remotepasseval = get_keychain_pass(account="joeri@gibbon.co", server="imap.gmail.com")
+cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
 realdelete = no
-nametrans = lambda folder: {'INBOX':             'Gibbon',
+nametrans = lambda folder: {'INBOX':             'inbox',
                             '[Imap]/Drafts':     'drafts',
                             '[Gmail]/Sent Mail': 'sent',
                             '[Gmail]/Starred':   'flagged',

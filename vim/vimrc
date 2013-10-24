@@ -12,13 +12,11 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" Basics
 Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'bling/vim-airline'
-Bundle 'sjl/badwolf'
 Bundle 'scrooloose/syntastic'
-Bundle 'eraserhd/vim-ios'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'rking/ag.vim'
 Bundle 'jceb/vim-orgmode'
@@ -26,14 +24,27 @@ Bundle 'mhinz/vim-startify'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tell-k/vim-browsereload-mac'
-Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'Floobits/floobits-vim'
-Bundle 'klen/python-mode'
-
+Bundle 'tpope/vim-fugitive'
 Bundle 'surround.vim'
-Bundle 'VimClojure'
-Bundle 'Rainbow-Parenthesis'
-Bundle 'jshint.vim'
+
+" Themes
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Bundle 'sjl/badwolf'
+
+" Clojure
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-classpath'
+Bundle 'guns/vim-clojure-static'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'paredit.vim'
+
+" iOS 
+Bundle 'eraserhd/vim-ios'
+
+" Python
+Bundle 'klen/python-mode'
+Bundle 'jmcantrell/vim-virtualenv'
 
 filetype plugin indent on     " required!
 
@@ -71,10 +82,6 @@ let g:airline_enable_branch=1
 let g:airline_powerline_fonts=1
 let g:airline_detect_whitespace = 1
 let g:airline#extensions#hunks#non_zero_only = 1
-
-let g:airline#extensions#tabline#enabled = 2
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#buffer_min_count = 1
 
 " Editor configuration
 if has('unix')
@@ -187,35 +194,6 @@ augroup END
 " JSON
 au! BufRead,BufNewFile *.json setfiletype json 
 
-" CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-nnoremap <leader>cc :CtrlPClearAllCaches<cr>
-
-" Python-mode
-
-let g:pymode_lint_ignore = "E501, E301"
-
-" Syntastic
-
-let g:syntastic_python_checkers=['pyflakes']
-
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol  = '⚡'
-let g:syntastic_style_warning_symbol  = '⚡'
-
-" Easy motion
-let g:EasyMotion_keys = 'asdfghjklqwertyuiopzxcvbnm'
-
-autocmd ColorScheme * highlight EasyMotionTarget ctermfg=32 guifg=#0087df
-autocmd ColorScheme * highlight EasyMotionShade ctermfg=237 guifg=#3a3a3a
-
-" AutoReload
-let g:returnApp = "MacVim"
-command! -bar Cr silent ChromeReload
-
 " Setup statusline with git
 set laststatus=2
 set statusline=
@@ -256,13 +234,14 @@ au! BufWritePost $MYVIMRC source %
 autocmd BufWritePre *.py :%s/\s\+$//e
 
 " Clojure
-let vimclojure#FuzzyIndent=1
-let vimclojure#HighlightBuiltins=1
-let vimclojure#HighlightContrib=1
-let vimclojure#DynamicHighlighting=1
-let vimclojure#ParenRainbow=1
-let vimclojure#WantNailgun = 1 
-let vimclojure#NailgunClient = "/usr/local/bin/ng"
+let g:clojure_align_multiline_strings=1
+augroup ft_clojure
+    au!
+    au FileType clojure RainbowParenthesesActivate
+    au syntax clojure RainbowParenthesesLoadRound
+    au syntax clojure RainbowParenthesesLoadSquare
+    au syntax clojure RainbowParenthesesLoadBraces
+augroup END
 
 " Badwolf theme settings
 let g:badwolf_darkgutter = 1
@@ -272,3 +251,34 @@ let g:ycm_min_num_of_chars_for_completion = 3
 let g:ycm_confirm_extra_conf = 1
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_allow_changing_updatetime = 0
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+nmap <c-b> :CtrlPBuffer<CR>
+nnoremap <leader>cc :CtrlPClearAllCaches<cr>
+
+" Python-mode
+
+let g:pymode_lint_ignore = "E501, E301"
+
+" Syntastic
+
+let g:syntastic_python_checkers=['pyflakes']
+
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_error_symbol  = '⚡'
+let g:syntastic_style_warning_symbol  = '⚡'
+
+" Easy motion
+let g:EasyMotion_keys = 'asdfghjklqwertyuiopzxcvbnm'
+
+autocmd ColorScheme * highlight EasyMotionTarget ctermfg=32 guifg=#0087df
+autocmd ColorScheme * highlight EasyMotionShade ctermfg=237 guifg=#3a3a3a
+
+" AutoReload
+let g:returnApp = "MacVim"
+command! -bar Cr silent ChromeReload
+

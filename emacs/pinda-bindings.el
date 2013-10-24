@@ -99,4 +99,7 @@
 ;; close emacs
 (global-set-key (kbd "C-c q") 'save-buffers-kill-emacs)
 
+;; mu4e
+(global-set-key (kbd "C-c m") 'mu4e)
+
 (provide 'pinda-bindings)

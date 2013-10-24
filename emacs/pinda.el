@@ -19,6 +19,7 @@
              expand-region change-inner powerline surround
              idomenu diminish dired-details multiple-cursors ag
              restclient rainbow-delimiters smex smartparens evil
+             exec-path-from-shell
 
              ;; modes
              org org-plus-contrib pandoc-mode markdown-mode
@@ -54,3 +55,7 @@
 
 (when (eq system-type 'darwin)
   (require 'pinda-mac))     ; mac settings
+
+;; email only on my local computer
+;(when (string-equal system-name "Pinda.local")
+(require 'pinda-mu4e)
