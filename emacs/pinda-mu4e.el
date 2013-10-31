@@ -35,12 +35,12 @@
 )
 
 ;; maildir locations
-(setq mu4e-maildir "/Volumes/Loempia/.mail"
+(setq mu4e-maildir "~/.mail"
       mu4e-sent-folder "/pinda/sent"
       mu4e-drafts-folder "/pinda/drafts"
       mu4e-trash-folder "/pinda/trash"
       mu4e-refile-folder "/pinda/archive"
-      smtpmail-queue-dir   "/Volumes/Loempia/.mail/queue/cur")
+      smtpmail-queue-dir   "~/.mail/queue/cur")
 
 ;; sending mail
 (setq message-send-mail-function 'smtpmail-send-it)

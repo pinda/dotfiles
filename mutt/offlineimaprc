@@ -11,7 +11,7 @@ status_backend = sqlite
 
 [Repository jsoejitno-local]
 type = Maildir
-localfolders = /Volumes/Loempia/.mail/pinda
+localfolders = ~/.mail/pinda
 nametrans = lambda folder: {'inbox':   'INBOX',
                             'drafts':  '[Gmail]/Drafts',
                             'sent':    '[Gmail]/Sent Mail',
@@ -46,7 +46,7 @@ status_backend = sqlite
 
 [Repository breadandpepper-local]
 type = Maildir
-localfolders = /Volumes/Loempia/.mail/bread-and-pepper
+localfolders = ~/.mail/bread-and-pepper
 nametrans = lambda folder: {'inbox': 'INBOX',
                             'drafts':         '[Gmail]/Drafts',
                             'sent':           '[Gmail]/Sent Mail',
@@ -81,7 +81,7 @@ status_backend = sqlite
 
 [Repository gibbon-local]
 type = Maildir
-localfolders = /Volumes/Loempia/.mail/gibbon
+localfolders = ~/.mail/gibbon
 nametrans = lambda folder: {'inbox': 'INBOX',
                             'drafts':         '[Gmail]/Drafts',
                             'sent':           '[Gmail]/Sent Mail',

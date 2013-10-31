@@ -1,7 +1,6 @@
 ;; mac only settings.
 ;; use the old way of toggling to fullscreen
-(setq ns-use-native-fullscreen nil)
-(global-set-key (kbd "C-c f") 'toggle-frame-fullscreen)
+(tool-bar-mode 0)
 
 (setq flyspell-issue-welcome-flag nil) ;; fix flyspell problem
 
