@@ -10,8 +10,9 @@ alias gun="gunicorn_django --workers=2"
 alias clj="rlwrap clj"
 alias ec="emacsclient -t"
 
-# Don't correct sudo for me
+# Disable autocorrect
 alias sudo='nocorrect sudo'
+alias vagrant="nocorrect vagrant"
 
 # Temporary
 alias clear='echo "CTRL-L"'

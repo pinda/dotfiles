@@ -138,8 +138,8 @@
 (setq sp-base-key-bindings 'paredit)
 (setq sp-autoskip-closing-pair 'always)
 (sp-use-paredit-bindings)
-(sp-local-pair 'web-mode "{%" "%}")
-(sp-local-pair 'web-mode "{{" "}}")
+;;(sp-local-pair 'web-mode "{%" "%}")
+;;(sp-local-pair 'web-mode "{{" "}}")
 (sp-local-pair 'web-mode "{" nil :actions nil)
 (smartparens-global-mode t)
 

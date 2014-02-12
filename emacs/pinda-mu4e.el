@@ -129,11 +129,11 @@
 ;; shortcuts
 (setq mu4e-maildir-shortcuts
        '(("/pinda/inbox"              . ?i)
-         ("/bread-and-pepper/inbox"   . ?I)
+         ("/bread-and-pepper/inbox"   . ?b)
          ("/gibbon/inbox"             . ?g)
          ("/gibbon/archive"           . ?G)
-         ("/pinda/archive"            . ?a)
-         ("/bread-and-pepper/archive" . ?A)
+         ("/pinda/archive"            . ?I)
+         ("/bread-and-pepper/archive" . ?B)
          ("/pinda/sent"               . ?s)
          ("/bread-and-pepper/sent"    . ?S)
          ("/pinda/trash"              . ?t)

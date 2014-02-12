@@ -30,7 +30,7 @@
              ;; languages
              nrepl ac-nrepl ac-slime clojure-mode
              clojure-test-mode cljdoc clojurescript-mode
-             elpy slime slime-repl
+             elpy slime slime-repl anything
              
              ;; themes
              zenburn-theme color-theme-sanityinc-tomorrow
@@ -52,6 +52,7 @@
 (require 'pinda-lisp)       ; lisp languages
 (require 'pinda-python)     ; python
 (require 'pinda-evil)       ; vim emulation
+(require 'pinda-cocoa)      ; cocoa
 
 (when (eq system-type 'darwin)
   (require 'pinda-mac))     ; mac settings

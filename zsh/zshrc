@@ -9,7 +9,7 @@ export ZSH_THEME="sorin"
 export CASE_SENSITIVE="true"
 
 # Vagrant
-export VAGRANT_HOME=/Volumes/Loempia/.vagrant.d
+export VAGRANT_HOME=~/.vagrant.d
 
 # Comment this out to disable weekly auto-update checks
 # export DISABLE_AUTO_UPDATE="true"
@@ -52,3 +52,6 @@ bindkey -e
 # If vim mode, than bind this key, can't live without
 # CTRL-R
 # bindkey "^r" history-incremental-search-backward
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
