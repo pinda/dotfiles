@@ -20,7 +20,7 @@ emacs::
 zsh::
 	@ln -fs $(DOTFILES)/zsh/zshrc ${HOME}/.zshrc
 	@ln -fs $(DOTFILES)/zsh/zshalias ${HOME}/.zshalias
-	@ln -fs $(DOTFILES)/zsh/zshenv ${HOME}/.zshenv
+	@ln -fs $(DOTFILES)/zsh/env ${HOME}/.zshenv
 	@ln -fns $(DOTFILES)/zsh/oh-my-zsh ${HOME}/.oh-my-zsh
 	@echo ZSH symlinked.
 
