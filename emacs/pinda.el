@@ -50,7 +50,11 @@
 (require 'pinda-temp)       ; temporary files
 (require 'pinda-shell)      ; shell mode
 <<<<<<< HEAD
+<<<<<<< HEAD
 ;(require 'pinda-lisp)       ; lisp languages
+=======
+(require 'pinda-lisp)       ; lisp languages
+>>>>>>> cc8f3dad1a77e4bd5c9e27d9c6647667736d5d49
 =======
 (require 'pinda-lisp)       ; lisp languages
 >>>>>>> cc8f3dad1a77e4bd5c9e27d9c6647667736d5d49
