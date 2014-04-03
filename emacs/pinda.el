@@ -49,7 +49,7 @@
 (require 'pinda-theme)      ; set the theme and font
 (require 'pinda-temp)       ; temporary files
 (require 'pinda-shell)      ; shell mode
-(require 'pinda-lisp)       ; lisp languages
+;(require 'pinda-lisp)       ; lisp languages
 (require 'pinda-python)     ; python
 (require 'pinda-evil)       ; vim emulation
 (require 'pinda-cocoa)      ; cocoa
