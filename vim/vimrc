@@ -24,7 +24,6 @@ Bundle 'mhinz/vim-startify'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tell-k/vim-browsereload-mac'
-Bundle 'Floobits/floobits-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'surround.vim'
 

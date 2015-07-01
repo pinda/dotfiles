@@ -9,6 +9,8 @@ alias rmpyc="find . -name '*.pyc' | xargs rm"
 alias gun="gunicorn_django --workers=2"
 alias clj="rlwrap clj"
 alias ec="emacsclient -t"
+alias gb="go build"
+alias mux=tmuxinator
 
 # Disable autocorrect
 alias sudo='nocorrect sudo'
@@ -64,6 +66,10 @@ alias "fileserver"="python -m SimpleHTTPServer"
 alias rs='./manage.py runserver 127.0.0.1:8000'
 alias rsp='./manage.py runserver 127.0.0.1:8000 --settings=settings_production'
 alias tst='./manage.py test'
+
+# Go
+alias "gj"="godep save github.com/gibbonco/janus/... && go build && ./janus"
+alias "gt"="go build && ./titan"
 
 # Pypi
 alias pyup='python setup.py sdist register upload'

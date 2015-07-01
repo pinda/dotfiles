@@ -11,6 +11,14 @@ export CASE_SENSITIVE="true"
 # Vagrant
 export VAGRANT_HOME=~/.vagrant.d
 
+# Pyenv
+export PATH="${HOME}/.pyenv/bin:$PATH"
+export PYENV_ROOT="${HOME}/.pyenv"
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+#source ~/.bin/tmuxinator.zsh
+
 # Comment this out to disable weekly auto-update checks
 # export DISABLE_AUTO_UPDATE="true"
 
@@ -29,22 +37,15 @@ if [ `uname` = "Linux" ]; then
    plugins+=(archlinux)
 fi
 
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+. `brew --prefix`/etc/profile.d/z.sh
+
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 source ~/.zshalias
 source ~/.zshenv
-
-# Check for a .venv file. If it's there, activate it.
-has_virtualenv() {
-  if [ -e .venv ] && [ -z "$VIRTUAL_ENV" ]; then
-    workon "$@" `cat .venv`
-  fi
-}
-venv_cd () {
-  cd "$@" && has_virtualenv
-}
-alias cd="venv_cd"
 
 # Bindings
 bindkey -e
@@ -55,3 +56,6 @@ bindkey -e
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+PERL_MB_OPT="--install_base \"/Users/joeri/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/joeri/perl5"; export PERL_MM_OPT;
