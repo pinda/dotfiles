@@ -12,4 +12,5 @@ emacs/.mc-lists.el
 emacs/projectile-bookmarks.eld
 emacs/eshell/lastdir
 emacs/saved-placesgit/gitconfig
+git/gitconfig
 zsh/env
